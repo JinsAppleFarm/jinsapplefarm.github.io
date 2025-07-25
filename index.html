@@ -2,145 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jin’s Apple Farm | Westbury NY</title>
-  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Calibri:wght@700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jin's Apple Farm</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  
   <style>
     body {
       margin: 0;
-      font-family: 'Calibri', sans-serif;
-      background: #f5fff5;
+      font-family: Calibri, sans-serif;
+      background-color: #81c784; /* darker green */
       color: #333;
     }
 
     header {
-      background-color: #3a7c2e;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
+      background-color: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
-    header img {
-      max-width: 200px;
-      height: auto;
-      margin-bottom: 10px;
+    .logo {
+      height: 60px;
     }
 
-    header h1 {
-      font-family: 'Abril Fatface', cursive;
-      margin: 0;
-      font-size: 2.7rem;
+    .menu-toggle {
+      font-size: 30px;
+      cursor: pointer;
+      background: none;
+      border: none;
     }
 
     nav {
-      background: #e6ffe6;
-      padding: 15px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background-color: white;
+      padding-top: 60px;
+      box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+      transition: right 0.3s ease;
     }
 
-    .menu-icon {
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: #3a7c2e;
+    nav.open {
+      right: 0;
+    }
+
+    nav a {
       display: block;
-    }
-
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      background: #f0fff0;
-      padding: 10px;
-      border-radius: 5px;
-      position: absolute;
-      top: 70px;
-      right: 15px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.15);
-    }
-
-    .nav-links a {
-      color: #3a7c2e;
+      padding: 15px 20px;
+      color: #333;
       text-decoration: none;
-      margin: 8px 0;
-      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      border-bottom: 1px solid #ddd;
     }
 
-    .section {
-      padding: 50px 20px;
+    h1 {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-top: 20px;
+    }
+
+    .tagline {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .slideshow {
+      max-width: 90%;
+      margin: 30px auto;
       text-align: center;
     }
 
-    .section h2 {
-      font-family: 'Abril Fatface', cursive;
-      color: #3a7c2e;
-      margin-bottom: 15px;
+    .slideshow img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: none;
     }
 
-    footer {
-      background: #e0f5e0;
-      text-align: center;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    @media (min-width: 600px) {
-      .nav-links {
-        display: flex;
-        flex-direction: row;
-        position: static;
-        box-shadow: none;
-      }
-
-      .nav-links a {
-        margin: 0 15px;
-      }
-
-      .menu-icon {
-        display: none;
-      }
+    .slideshow img:first-child {
+      display: block;
     }
   </style>
 </head>
+
 <body>
 
+  <!-- Header -->
   <header>
-    <img src="logo.png" alt="Jin’s Apple Farm Logo" />
-    <h1>Jin’s Apple Farm</h1>
-    <p>Fresh apples straight from Westbury, NY</p>
+    <img src="logo.png" alt="Jin's Apple Farm Logo" class="logo" />
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
   </header>
 
-  <nav>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="location.html">Our Location</a>
-      <a href="reviews.html">Reviews</a>
-      <a href="about.html">About Us</a>
-      <a href="hours.html">Opening Hours</a>
-      <a href="https://www.doordash.com/" target="_blank">
-        <img src="doordash-logo.png" alt="DoorDash" style="height: 20px; vertical-align: middle;" />
-      </a>
-    </div>
+  <!-- Mobile Waffle Menu -->
+  <nav id="sideMenu">
+    <a href="index.html">Home</a>
+    <a href="location.html">Our Location</a>
+    <a href="reviews.html">Reviews</a>
+    <a href="about.html">About Us</a>
+    <a href="hours.html">Opening Hours</a>
+    <a href="https://www.doordash.com/" target="_blank">
+      <img src="doordash-logo.png" alt="Order on DoorDash" style="height: 20px; vertical-align: middle;" />
+      Order Now
+    </a>
   </nav>
 
-  <div class="section">
-    <h2>Welcome to Jin’s Apple Farm!</h2>
-    <p>Visit us for fresh-picked apples, homemade cider, and a warm local experience!</p>
-    <img src="homepage-image.jpg" alt="Farm Image" style="max-width: 90%; margin-top: 20px;" />
+  <!-- Main Content -->
+  <h1>Welcome to Jin’s Apple Farm</h1>
+  <p class="tagline">Grocery • Lottery • Flowers • & More</p>
+
+  <!-- Slideshow -->
+  <div class="slideshow">
+    <img class="slides" src="slide1.jpg" />
+    <img class="slides" src="slide2.jpg" />
+    <img class="slides" src="slide3.jpg" />
   </div>
 
-  <footer>
-    &copy; 2025 Jin’s Apple Farm. All rights reserved.
-  </footer>
-
+  <!-- JavaScript for Menu + Slideshow -->
   <script>
     function toggleMenu() {
-      const nav = document.getElementById('navLinks');
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      document.getElementById("sideMenu").classList.toggle("open");
     }
+
+    // Slideshow
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slides");
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+    showSlides();
   </script>
 
 </body>
 </html>
+
