@@ -1,86 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Jin’s Apple Farm | Westbury NY</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jin’s Apple Farm | Home</title>
   <style>
     body {
-      margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #fffdf7;
-      color: #333;
+      margin: 0; background: #fffdf7; color: #333;
     }
     header {
       background-color: #f04e30;
       color: white;
-      padding: 40px 20px;
-      text-align: center;
+      padding: 20px;
+      position: relative;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5rem;
+      font-size: 1.8rem;
     }
-    header p {
-      font-size: 1.1rem;
+
+    /* Hamburger menu styles */
+    .menu-icon {
+      position: absolute;
+      right: 20px;
+      top: 25px;
+      width: 30px;
+      height: 22px;
+      cursor: pointer;
+      z-index: 1000;
     }
+    .menu-icon div {
+      height: 4px;
+      background: white;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    /* Navigation menu */
     nav {
+      display: none;
       background: #ffe2d6;
-      padding: 10px;
-      text-align: center;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      width: 150px;
     }
     nav a {
-      margin: 0 15px;
-      text-decoration: none;
+      display: block;
+      padding: 12px 16px;
       color: #f04e30;
+      text-decoration: none;
       font-weight: bold;
     }
-    .section {
-      padding: 40px 20px;
-      text-align: center;
+    nav a:hover {
+      background: #f04e30;
+      color: white;
     }
-    .section h2 {
-      color: #f04e30;
-      margin-bottom: 10px;
+
+    /* Show nav when active */
+    nav.active {
+      display: block;
+    }
+
+    .section {
+      padding: 30px 20px;
+      text-align: center;
     }
     footer {
       background: #f8f8f8;
-      padding: 20px;
+      padding: 15px;
       text-align: center;
-      font-size: 0.9rem;
       color: #666;
-    }
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🍎 Jin’s Apple Farm</h1>
-    <p>Westbury, NY – Fresh Fruits, Snacks & More</p>
-  </header>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Products</a>
-    <a href="#">Visit Us</a>
-    <a href="#">Contact</a>
+<header>
+  <h1>🍎 Jin’s Apple Farm</h1>
+  <div class="menu-icon" id="menuIcon">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <nav id="navMenu">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
   </nav>
+</header>
 
-  <div class="section">
-    <h2>Welcome to Jin’s Apple Farm!</h2>
-    <p>We bring you the freshest apples, homemade cider, and hand-picked produce straight from the farm to your table.</p>
-  </div>
+<div class="section">
+  <h2>Welcome to Jin’s Apple Farm!</h2>
+  <p>We bring you the freshest apples, homemade cider, and hand-picked produce straight from the farm to your table.</p>
+</div>
 
-  <div class="section">
-    <h2>Where to Find Us</h2>
-    <p>Located on Post Ave, Westbury NY. Stop by and say hi!</p>
-  </div>
+<div class="section">
+  <h2>Where to Find Us</h2>
+  <p>Located on Post Ave, Westbury NY. Stop by and say hi!</p>
+</div>
 
-  <footer>
-    &copy; 2025 Jin’s Apple Farm – Westbury, NY. All rights reserved.
-  </footer>
+<footer>
+  &copy; 2025 Jin’s Apple Farm – Westbury, NY. All rights reserved.
+</footer>
+
+<script>
+  // Toggle the nav menu when hamburger icon is clicked
+  const menuIcon = document.getElementById('menuIcon');
+  const navMenu = document.getElementById('navMenu');
+
+  menuIcon.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>
